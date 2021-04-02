@@ -1,0 +1,5 @@
+*.sw?
+*.csv
+*.json
+jira_analysis
+postgres.container.id

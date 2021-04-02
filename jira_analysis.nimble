@@ -5,7 +5,7 @@ author        = "Jonathan Bernard"
 description   = "A new awesome nimble package"
 license       = "MIT"
 srcDir        = "src/nim"
-bin           = @["tm_pm"]
+bin           = @["jira_analysis"]
 
 
 # Dependencies

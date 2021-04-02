@@ -1,6 +1,6 @@
 import csvtools, docopt, fiber_orm, db_postgres, sequtils, sets, strutils
 
-import ./tm_pmpkg/jira_api
+import ./jira_analysispkg/jira_api
 
 type
   Feature* = object
@@ -27,11 +27,11 @@ when isMainModule:
 
   let doc = """
 Usage:
-  tm_pm import-csv <import-file>
-  tm_pm api-sync <username> <api-key>
+  jira_analysis import-csv <import-file>
+  jira_analysis api-sync <url-base> <username> <api-key>
 """
 
-  let args = docopt(doc, version = "0.1.0")
+  let args = docopt(doc, version = "0.2.0")
   let db = connect("host=localhost port=5500 dbname=tegra118 user=postgres password=password")
 
   if args["import-csv"]:
@@ -58,7 +58,7 @@ Usage:
       #   db.createJiraIssue(issue);
 
   if args["api-sync"]:
-    initJiraClient("https://tegra118.atlassian.net", $args["<username>"], $args["<api-key>"])
+    initJiraClient($args["<url-base>"], $args["<username>"], $args["<api-key>"])
     let issuesAndChangelogs = searchIssues(
       "project = \"UUP\" and (labels is empty or labels != \"Design&Reqs\") ORDER BY key ASC",
       includeChangelog = true
