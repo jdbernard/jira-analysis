@@ -7,38 +7,38 @@ Script to extract data from JIRA and pull it into a postgres DB for analysis.
 3. [Generate an API token for your JIRA user.][jira-api-key]
 4. Pull the database container:
 
-   ```sh
-   make createdb
-   ```
+     ```sh
+     make createdb
+     ```
 
-   Feel free to edit the Makefile to view or change the default
-   username/password combination.
+     Feel free to edit the Makefile to view or change the default
+     username/password combination.
 
-4. Build the tool:
+5. Build the tool:
 
-   ```sh
-   nimble build
-   ```
+     ```sh
+     nimble build
+     ```
 
 ## Usage
 
 - Start the database container:
 
-  ```sh
-  make startdb
-  ```
+    ```sh
+    make startdb
+    ```
 
 - Pull issues from your JIRA instance into the DB:
 
-  ```sh
-  ./jira_analysis api-sync <jira-base-url> <username> <api-token>
-  ```
+    ```sh
+    ./jira_analysis api-sync <jira-base-url> <username> <api-token>
+    ```
 
 - Connect to the database for analysis:
 
-  ```sh
-  make connect
-  ```
+    ```sh
+    make connect
+    ```
 
 ## Convenient PostgreSQL commands
 
@@ -46,11 +46,11 @@ From within a `psql` session:
 
 - Export tables to CSV:
 
-  ```psql
-  \copy features TO features-export.csv DELIMITER ',' CSV HEADER;
-  \copy issues TO issues-export.csv DELIMITER ',' CSV HEADER;
-  \copy change_logs TO changelog-export.csv DELIMITER ',' CSV HEADER;
-  ```
+    ```psql
+    \copy features TO features-export.csv DELIMITER ',' CSV HEADER;
+    \copy issues TO issues-export.csv DELIMITER ',' CSV HEADER;
+    \copy change_logs TO changelog-export.csv DELIMITER ',' CSV HEADER;
+    ```
 
 [docker-desktop]: https://www.docker.com/products/docker-desktop
 [nimlang]: https://nim-lang.org/
