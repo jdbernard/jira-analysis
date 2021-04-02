@@ -3,8 +3,9 @@ Script to extract data from JIRA and pull it into a postgres DB for analysis.
 ## Setup
 
 1. Install [docker][docker-desktop]
-2. [Generate an API token for your JIRA user.][jira-api-key]
-3. Pull the database container:
+2. Install [nim][nimlang] (via [choosenim][choosenim]).
+3. [Generate an API token for your JIRA user.][jira-api-key]
+4. Pull the database container:
 
    ```sh
    make createdb
@@ -52,4 +53,6 @@ From within a `psql` session:
   ```
 
 [docker-desktop]: https://www.docker.com/products/docker-desktop
+[nimlang]: https://nim-lang.org/
+[choosenim]: https://github.com/dom96/choosenim
 [jira-api-key]: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/
